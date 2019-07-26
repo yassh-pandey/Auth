@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+html, body{
+    width: 100%;
+}
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: darkslategray;
+    padding: 20px 0px;
+}
+nav > a{
+    text-decoration: none;
+    font-size: 24px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    margin-right: 50px;
+    text-align: right;
+    min-width: 90px;
+}
+.gridContainer{
+    display: grid;
+    grid-template: repeat(8, 1fr)  / repeat(8, 1fr);
+    height: calc( 100vh - 68px ) ;
+}
+.gridItem{
+    grid-row: 2 / span 6;
+    grid-column: 3 / span 4;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 30px;
+    box-shadow: 0px 0px 4px 0.1px rgba(1,1,1,0.3);
+    padding: 20px;
+    position: relative;
+}
+h2{
+    color:#2c2246;
+}
+label{
+    flex: 1 1 100%;
+    font-size: 24px;
+    margin: 6px 0px;
+}
+input{
+    flex: 1 1 100%;
+    font-size: 16px;
+    margin: 7px 0px;
+    padding: 10px 10px;
+    border: 0.5px solid rgba(1,1,1,0.2);
+    border-radius: 4px;
+    min-width: 0px;
+}
+button{
+    flex-basis: 0 1 auto;
+    background-color: #428bca;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 4px 4px 4px -2px rgba(1,1,1,0.5); 
+    margin: 20px 0px;
+    font-size: 20px;
+    transition: transform 60ms linear;
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+}
+button:active{
+    transform: scale(0.9);
+}
+.error{
+    flex: 1 1 100%;
+    border-radius: 4px;
+    background: rgba(255,0,0,0.2);
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 5px;
+}
+#logoWrapper{
+    display: flex;
+    box-shadow: none;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    animation-name: rotateAtom;
+    animation-delay: 0s;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-duration: 1.5s;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@media (max-width: 450px){
+    .gridItem{
+        grid-row: 2 / span 6;
+        grid-column: 1 / -1;
+        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        font-size: 25px;
+        margin: 10px 10px;
+    }
+    nav a{
+        margin: 10px 15px;
+    }
+}
+@media (max-width: 320px){
+    .gridItem{
+        grid-row: 2 / span 8;
+        grid-column: 1 / -1;
+        margin: 15px 15px;
+    }
+    .error{
+        font-size: 14px;
+        bottom: 10px;
+        padding: 3px 5px;
+        position: absolute;
+    }
+    button{
+        transform: scale(0.8);
+;    }
+}
+@media (max-height: 720px){
+    .gridItem{
+        grid-row: 1 / -1;
+        margin: 20px 15px;
+        min-height: 465px;
+    }
+}
+@keyframes rotateAtom{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
